@@ -4,7 +4,11 @@ class MovableObject {
     img;
 
 
-    moveRight() {
+    moveRight(){
+
+    }
+
+    moveLeft(){
 
     }
 }
