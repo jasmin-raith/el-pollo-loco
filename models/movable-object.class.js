@@ -6,6 +6,7 @@ class MovableObject {
     width = 100;
     imageCache = {};
     currentImage = 0;
+    speed = 0.15;
 
 
     loadImage(path) {
@@ -30,6 +31,8 @@ class MovableObject {
     }
 
     moveLeft() {
-
+        setInterval(() => {    // 60 mal pro Sekunde wird das Objekt um 0.15 Pixel nach links verschoben
+            this.x -= this.speed;          
+        }, 1000 / 60);
     }
 }
