@@ -19,10 +19,13 @@ class Chicken extends MovableObject {
     }
 
     animate() {
-        this.moveLeft();
+        setInterval(() => {    // 60 mal pro Sekunde wird das Objekt um 0.15 Pixel nach links verschoben
+            this.moveLeft();                     
+        }, 1000 / 60);
 
         setInterval(() => {
             this.playAnimation(this.IMAGES_WALKING);
         }, 200);
-    }
+    }    
+
 }

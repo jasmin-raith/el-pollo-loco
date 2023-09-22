@@ -15,7 +15,7 @@ class MovableObject {
 
     applyGravity() {
         setInterval(() => {
-            if (this.isAboveGround()) {
+            if (this.isAboveGround() || this.speedY > 0) {
                 this.y -= this.speedY;
                 this.speedY -= this.acceleration;
             }
@@ -52,12 +52,14 @@ class MovableObject {
     }
 
     moveRight() {
-
+        this.x += this.speed;
     }
 
     moveLeft() {
-        setInterval(() => {    // 60 mal pro Sekunde wird das Objekt um 0.15 Pixel nach links verschoben
-            this.x -= this.speed;          
-        }, 1000 / 60);
+        this.x -= this.speed;
+    }
+
+    jump() {
+        this.speedY = 30;
     }
 }
