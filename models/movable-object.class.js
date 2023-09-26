@@ -11,6 +11,7 @@ class MovableObject {
     speedY = 0;
     acceleration = 2.5;
     energy = 100;
+    lastHit = 0;
 
 
 
@@ -59,7 +60,15 @@ class MovableObject {
         this.energy -= 5;
         if (this.energy < 0) {
             this.energy = 0;
+        } else {
+            this.lastHit = new Date().getTime();   // zeigt Zeit in Zahlenform
         }
+    }
+
+    isHurt() {
+        let timepassed = new Date().getTime() - this.lastHit;   // Differenz in Millisekunden
+        timepassed = timepassed / 1000;   // Differenz in Sekunden
+        return timepassed < 1;
     }
 
     isDead() {
@@ -79,7 +88,7 @@ class MovableObject {
     }
 
     playAnimation(images) {
-        let i = this.currentImage % this.IMAGES_WALKING.length;  // Beispiel: let i = 0 % 6 => 0, Rest 5  // let i = 1 % 6 => 1, Rest 4  // i = 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5 ....
+        let i = this.currentImage % images.length;  // Beispiel: let i = 0 % 6 => 0, Rest 5  // let i = 1 % 6 => 1, Rest 4  // i = 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5 ....
         let path = images[i];
         this.img = this.imageCache[path];
         this.currentImage++
