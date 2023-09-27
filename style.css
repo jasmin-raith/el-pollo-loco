@@ -1,9 +1,38 @@
+@font-face {
+    font-family: 'zabras';
+    src: url('fonts/zabars.ttf') format('truetype');
+}
+
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0;
+    font-family: 'zabras', Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 64px;
+    letter-spacing: 4px;
 }
 
 canvas {
     background-color: black;
+    display: block;
+}
+
+
+/* Smartphones */
+@media only screen and (max-width: 720px) {
+    canvas {
+        width: 100%;
+    }
+}
+
+ /* Smartphones */
+@media only screen and (max-height: 480px) {
+    canvas {
+        height: 100vh;
+    }
 }
