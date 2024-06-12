@@ -22,6 +22,12 @@ canvas {
     display: block;
 }
 
+p {
+    display: ruby;
+    font-size: 30px;
+    color: #9f2309;
+}
+
 
 /* Smartphones */
 @media only screen and (max-width: 720px) {
