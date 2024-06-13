@@ -15,6 +15,13 @@ body {
 h1 {
     font-size: 64px;
     letter-spacing: 4px;
+    margin-block-start: 25px;
+}
+
+h2 {
+    margin-block-start: -25px;
+    letter-spacing: 1px;
+    color: #9f2309;
 }
 
 canvas {
