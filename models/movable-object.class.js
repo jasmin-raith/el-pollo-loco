@@ -50,7 +50,25 @@ class MovableObject extends DrawableObject {
     }
 
     isDead() {
-        return this.energy == 0;
+        if (this.energy == 0) {
+            this.showGameOverScreen(); // Aufruf der Funktion zum Einblenden des Game Over Bildschirms
+            return true;
+        }
+        return false;
+    }
+
+    showGameOverScreen() {
+        const canvas = document.getElementById('canvas');
+        const gameOverScreen = document.getElementById('gameOverScreen');
+
+        // Position und Größe des Overlays auf das Canvas anpassen
+        const rect = canvas.getBoundingClientRect();
+        gameOverScreen.style.top = `${rect.top}px`;
+        gameOverScreen.style.left = `${rect.left}px`;
+        gameOverScreen.style.width = `${rect.width}px`;
+        gameOverScreen.style.height = `${rect.height}px`;
+
+        gameOverScreen.style.display = 'flex'; // Das Overlay einblenden
     }
      
 
